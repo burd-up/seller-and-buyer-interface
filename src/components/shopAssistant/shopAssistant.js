@@ -1,6 +1,6 @@
 import React from 'react';
 import Product from "./product/product";
-import AddProduct from "./addProductForm";
+import AddProduct from "./addProductForm/addProductForm";
 
 const ShopAssistant = React.memo((props) => {
     let products;
@@ -14,7 +14,7 @@ const ShopAssistant = React.memo((props) => {
     }
     return (
         <div>
-            <AddProduct addProduct={props.addProduct}/>
+            <AddProduct addProduct={props.addProduct} addURL={props.addURL} deleteURL={props.deleteURL} urls={props.urls} deleteAllURL={props.deleteAllURL}/>
             <h3>Товары:</h3>
             {products}
         </div>
