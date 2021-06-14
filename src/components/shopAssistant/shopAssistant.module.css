@@ -1,0 +1,14 @@
+.header {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-auto-rows: 40px;
+    grid-column-gap: 5px;
+    grid-row-gap: 5px;
+    padding: 5px;
+}
+.button{
+    background-color: #61dafb;
+    border-radius: 5px;
+    text-align: center;
+
+}
