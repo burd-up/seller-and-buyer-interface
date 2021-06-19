@@ -1,22 +1,26 @@
 import React from 'react';
 import Photos from "../../shopAssistant/product/Photos";
+import plus from '../../../public/plus.svg';
+import minus from '../../../public/minus.svg';
+import style from './product.module.css';
 
-function ProductForBuyer(props) {
+function ProductForCart(props) {
 
-  return <div>
-    <div >
-      <h1>name: {props.name}</h1>
+    return <div className={style.product}>
+        <div className={style.blockPhoto}>
+            <div className={style.name}><h1>{props.name}</h1></div>
+            <Photos photos={props.photos}/>
+        </div>
+        <div className={style.blockDescription}>{props.description}</div>
+        <div className={style.blockPrice}>
+            <div >
+                <button className={style.plusMinus} onClick={() => {props.addToShoppingCart(props.id)}}><img src={plus}/></button>
+                <button className={style.plusMinus} onClick={() => {props.deleteFromShoppingCart(props.id)}}><img src={minus}/></button>
+            </div>
+            <div>quantity: {props.quantity}</div>
+            <div className={style.price}>{props.price * props.quantity} $</div>
+        </div>
     </div>
-      <Photos photos={props.photos}/>
-    <div>
-      description: {props.description}
-    </div>
-    <div>
-      price: {props.price}
-    </div>
-    <button onClick={() => {props.addToShoppingCart(props.id)}}>addToShoppingCart</button>
-    <button onClick={() => {props.deleteFromShoppingCart(props.id)}}>deleteFromShoppingCart</button>
-  </div>
 }
 
-export default ProductForBuyer;
+export default ProductForCart;

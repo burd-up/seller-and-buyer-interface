@@ -1,11 +1,8 @@
-.buyer {
-    width: 1024px;
-    background-color: red;
-    display: block;
-    margin-left: auto;
-    margin-right: auto
+.doOrder{
+  width: 100%;
+    height: 50px;
+    margin-top: 10px;
 }
-
 .list {
     display: grid;
     grid-template-columns: 12fr 1fr;
@@ -55,4 +52,23 @@
     grid-column-gap: 5px;
     grid-row-gap: 5px;
 
+}
+.button{
+    font-size: 25px;
+    background-color: #FFFFFF;
+    border: 1px solid #71B467;
+    border-radius: 3px;
+    text-align: center;
+    text-decoration: none;
+    font-family: 'Mate SC', fantasy;
+    color: #000000;
+    width: 100%;
+    height: 50px;
+    display: block;
+    margin-top: 10px;
+}
+.button:hover {
+    background-color: #71B467;
+    color: #FFFFFF;
+    transition: .3s;
 }

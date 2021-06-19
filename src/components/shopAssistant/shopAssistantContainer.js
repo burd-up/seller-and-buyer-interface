@@ -1,9 +1,16 @@
 import React from 'react';
 import {connect} from "react-redux";
 import {compose} from "redux";
-import {addProduct, deleteProduct} from "../../redux/shopAssistantReducer";
+import {addOrder, addProduct, changeProduct, deleteOrder, deleteProduct} from "../../redux/shopAssistantReducer";
 import ShopAssistant from "./shopAssistant";
-import {addURL, deleteAllURL, deleteURL} from "../../redux/addProductFormReducer";
+import {
+  addURL,
+  addURLForChange,
+  deleteAllURL,
+  deleteAllURLForChange,
+  deleteURL,
+  deleteURLForChange, deleteURLForChangeOnProductID
+} from "../../redux/addProductFormReducer";
 
 class ShopAssistantContainer extends React.Component {
   render() {
@@ -13,11 +20,16 @@ class ShopAssistantContainer extends React.Component {
 
 let mapStateToProps = (state) => {
   return {
+    orders: state.shopAssistantPage.orders,
     products: state.shopAssistantPage.products,
     urls: state.addProductForm.urls,
+    urlsForChange: state.addProductForm.urlsForChange,
   }
 }
 
 export default compose(
-    connect(mapStateToProps,{addProduct, deleteProduct, addURL, deleteURL, deleteAllURL})
+    connect(mapStateToProps,{addProduct,
+      deleteProduct, addURL, deleteURL,
+      deleteAllURL, changeProduct, addURLForChange,
+      deleteURLForChange, deleteAllURLForChange, deleteURLForChangeOnProductID})
 )(ShopAssistantContainer)

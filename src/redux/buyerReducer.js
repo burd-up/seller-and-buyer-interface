@@ -13,16 +13,23 @@ const buyerReducer = (state = initialState, action) => {
         //    acc[el] = (acc[el] || 0) + 1;
         //    return acc;
         //}, {});
+
         case ADD_TO_SHOPPING_CART:
             return {
                 ...state,
                 productsInCartId: [action.id, ...state.productsInCartId],
             };
         case DELETE_FROM_SHOPPING_CART:
-            return {
-                ...state,
-                productsInCartId: [...state.productsInCartId.filter(product => product !== action.id)],
-            };
+            let arr = [...state.productsInCartId]
+            for (let i = 0; i < arr.length; i++) {
+                if (arr[i] === action.id) {
+                    let newArr = arr.splice(i, 1);
+                    return {
+                        ...state,
+                        productsInCartId: arr,
+                    };
+                }
+            }
         case CLEAN_SHOPPING_CART:
             return {
                 ...state,

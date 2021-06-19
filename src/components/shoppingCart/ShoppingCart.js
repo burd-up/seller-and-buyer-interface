@@ -1,22 +1,38 @@
 import React from 'react';
-import ProductForBuyer from "./product/productForBuyer";
+import ProductForCart from "./product/productForCart";
+import {deleteFromShoppingCart} from "../../redux/buyerReducer";
+import style from "./shoppingCart.module.css";
+import {NavLink} from "react-router-dom";
 
-const Buyer = React.memo((props) => {
+const ShoppingCart = React.memo((props) => {
     let products;
     if (props.products.length === 0) {
-        products = "Нет товаров"
+        products = "Нет товаров в корзине"
     } else {
-        products = props.products.map(product => <ProductForBuyer key={product.id} deleteFromShoppingCart={props.deleteFromShoppingCart}
-                                                          name={product.name} addToShoppingCart={props.addToShoppingCart}
-                                                          id={product.id} description={product.description}
-                                                          price={product.price} photos={product.photos}/>)
+
+        products = props.products.map(product => <ProductForCart key={product.id}
+                                                                 deleteFromShoppingCart={props.deleteFromShoppingCart}
+                                                                 name={product.name}
+                                                                 addToShoppingCart={props.addToShoppingCart}
+                                                                 id={product.id} description={product.description}
+                                                                 price={product.price} photos={product.photos}
+                                                                 quantity={product.quantity}/>)
     }
     return (
         <div>
-            <h3>Товары:</h3>
-            {products}
+
+            <div className={style.title}>ShoppingCart:</div>
+            <div>{products}</div>
+            {props.products.length !== 0 ? <button className={style.doOrder} onClick={() => {
+                props.addOrder(props.products);
+                props.deleteFromShoppingCart();
+            }}>do order</button>
+                : <NavLink onClick={() => {
+                    props.addOrder(props.products);
+                    props.deleteFromShoppingCart();
+                }} className={style.button} to='/buyer'>to shopping</NavLink>}
         </div>
     )
 });
 
-export default Buyer;
+export default ShoppingCart;

@@ -1,16 +1,41 @@
-import React from 'react';
-import {NavLink} from "react-router-dom";
-
-function Navbar() {
-  return (
-      <nav>
-        <div >
-          <NavLink to='/shopAssistant'>shopAssistant</NavLink>
-        </div>
-        <div >
-          <NavLink to='/buyer'>buyer</NavLink>
-        </div>
-      </nav>
-  )
-};
-export default Navbar;
+.header {
+    display: grid;
+    grid-template-columns: 1fr 7fr 7fr;
+    grid-auto-rows: 40px;
+    grid-column-gap: 5px;
+    grid-row-gap: 5px;
+    align-content: center;
+    border-bottom: 1px solid #71B467;
+    padding-bottom: 5px;
+    background-color: #FFFFFF;
+    color: #000000;
+    margin: 0 -5px 0 -5px;
+}
+.button{
+    font-size: 25px;
+    background-color: #FFFFFF;
+    border: 1px solid #71B467;
+    border-radius: 3px;
+    text-align: center;
+    text-decoration: none;
+    font-family: 'Mate SC', serif;
+    color: #000000;
+    transition: .3s;
+}
+.button:hover {
+    background-color: #71B467;
+    color: #FFFFFF;
+    transition: .3s;
+}
+.logo{
+    height: 70%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    align-self: center;
+}
+.navbar{
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0px;
+}

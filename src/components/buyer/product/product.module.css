@@ -7,7 +7,7 @@
     border-radius: 3px;
     border: 3px solid #71B467;
     padding: 5px;
-    font-family: 'Mate SC', fantasy;
+    font-family: 'Mate SC', serif;
     color: #71B467;
     width: 320px;
 }
@@ -24,14 +24,15 @@
     border-radius: 3px;
     border: 1px solid #71B467;
     padding: 5px;
-    font-family: 'Mate SC', fantasy;
+    font-family: 'Mate SC', serif;
     color: #71B467;
 }
 .descriptionText {
     border: none;
     outline: none;
     resize: none;
-    font-family: 'Mate SC', fantasy;
+    font-family: 'Mate SC', serif;
+    cursor: pointer;
 }
 .descriptionButton {
     height: 100%;
@@ -39,7 +40,9 @@
 }
 .descriptionButtonOpen {
     height: 62px;
-    border: none;
+    border: 1px solid #71B467;
+}
+.buttonAdd {
     border: 1px solid #71B467;
 }
 .price {
@@ -80,3 +83,4 @@
     max-width: 100%;
     max-height: 200px;
 }
+

@@ -1,39 +1,34 @@
 import React, {useState} from 'react';
 import {Field, reduxForm} from "redux-form";
 import AddUrl from "./addUrlPhotosForm";
+import style from './addProductForm.module.css';
 
 function AddProduct(props) {
-
-    let ProductForm = (props) => {
-        //const [count, setCount] = useState(1);
-        //let url = [<Field component="input" name={"link" + 0} type="url" placeholder="link to photo"/>]
-        //for (let i = 0; i < count; i++) {
-        //    url.push(<Field component="input" name={"link" + i} type="url" placeholder="link to photo"/>)
-        //}
-        return (
-            <form onSubmit={props.handleSubmit}>
-                <div>
-                    <Field component="input" name="name" type="text" placeholder="name of product"/>
-                    <Field component="input" name="description" type="text" placeholder="description"/>
-                    <Field component="input" name="price" type="number" placeholder="price"/>
-                </div>
-                <button>Add</button>
-            </form>
-        )
-    }
-    ProductForm = reduxForm({form: 'newProduct'})(ProductForm);
-
     let urls = props.urls.map(url => url.url);
 
-    const onSubmit = (formData) => {
-        props.addProduct(formData.name, formData.description, formData.price, urls);
+    const [name, setName] = useState('');
+    const [description, setDescription] = useState('');
+    const [price, setPrice] = useState(null);
+
+    const onSubmit = () => {
+        props.addProduct(name, description, price, urls);
         props.deleteAllURL()
+        setName('');
+        setDescription('');
+        setPrice(null);
+
     }
 
-    return (<div>
-            Сначала укажите все ссылки на фото товара
+    return (<div className={style.form}>
+            <h2>form for adding a product</h2>
+            <div className={style.name}>
+                <input className={style.input} type = "text" onChange={(e) => {setName(e.target.value)}} value={name} placeholder="name of product"/>
+                <input className={style.input} type = "number" onChange={(e) => {setPrice(e.target.value)}} value={price} placeholder="price"/>
+            </div>
+            <textarea className={style.inputDescription} type = "text" onChange={(e) => {setDescription(e.target.value)}} value={description} placeholder="description"/>
             <AddUrl deleteURL={props.deleteURL} addURL={props.addURL} urls={props.urls}/>
-            <ProductForm onSubmit={onSubmit}/>
+            <button onClick={onSubmit}>add</button>
+            {/*<ProductForm onSubmit={onSubmit}/>*/}
         </div>
     )
 };

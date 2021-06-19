@@ -1,7 +1,86 @@
-.shopAssistant {
-    width: 1024px;
-    background-color: red;
-    display: block;
-    margin-left: auto;
-    margin-right: auto
+
+input[type="search"]::placeholder { color: #ffd595; }
+.form {
+    display: grid;
+    grid-auto-rows: minmax(30px, auto);
+    grid-column-gap: 5px;
+    grid-row-gap: 15px;
+    background-color: #FFFFFF;
+    border-radius: 3px;
+    border: 0px solid #71B467;
+    padding: 5px;
+    font-family: 'Mate SC', fantasy;
+    color: #000000;
+    background-image: url("../../../public/images/fon 1.jpg");
+    background-size: 100% auto;
+}
+.input {
+    background-color: #FFFFFF;
+    border: 0px solid #71B467;
+    outline: none;
+    border-radius: 3px;
+}
+.input::-webkit-input-placeholder { /*color:#71B467;*/ font-family: 'Mate SC';}
+.formURL{
+    display: grid;
+    grid-auto-rows: minmax(30px, auto);
+    grid-column-gap: 5px;
+    grid-row-gap: 5px;
+    grid-template-columns: 12fr 2fr;
+}
+.inputURL {
+    background-color: #FFFFFF;
+    border: 0px solid #71B467;
+    outline: none;
+    border-radius: 3px;
+    height: 40px;
+    width: 100%;
+}
+.inputDescription{
+    background-color: #FFFFFF;
+    border: 0px solid #71B467;
+    outline: none;
+    border-radius: 3px;
+    height: 80px;
+    resize: none;
+}
+.inputDescription::-webkit-input-placeholder { /*color:#71B467*/; font-family: 'Mate SC';}
+.name {
+    display: grid;
+    grid-auto-rows: minmax(30px, auto);
+    grid-column-gap: 5px;
+    grid-row-gap: 5px;
+    grid-template-columns: 3fr 1fr;
+}
+.list {
+    display: grid;
+    grid-row-gap: 5px;
+    margin-top: 5px;
+    min-height: 40px;
+    background-color: #FFFFFF;
+    border: 0px solid #71B467;
+    border-radius: 3px;
+    padding: 5px;
+    align-content: center;
+}
+.URL{
+    overflow: hidden; /* Обрезаем все, что не помещается в область */
+    text-overflow: ellipsis; /* Добавляем многоточие */
+    width: 700px;
+}
+.formOneURL {
+    display: grid;
+    grid-auto-rows: minmax(30px, auto);
+    grid-column-gap: 5px;
+    grid-row-gap: 5px;
+    grid-template-columns: 2fr 16fr 2fr;
+    background-color: #F9F9F9;
+    padding: 5px;
+}
+.imgUrl{
+    height: 60px;
+    border-radius: 3px;
+}
+.buttonForDeleteUrl{
+    height: 100%;
 }

@@ -1,25 +1,21 @@
 import React from 'react';
-import ProductForCart from "./product/productForCart";
+import Order from "./Order";
+import style from './order.module.css';
 
-const ShoppingCart = React.memo((props) => {
-    let products;
-    if (props.products.length === 0) {
-        products = "Нет товаров в корзине"
-        //определения колличества каждого элемента в массиве
-
+const Orders = React.memo((props) => {
+    debugger
+    let orders;
+    if (props.orders.length === 0) {
+        orders = "Нет Заказов"
     } else {
-
-        products = props.products.map(product => <ProductForCart key={product.id} deleteFromShoppingCart={props.deleteFromShoppingCart}
-                                                          name={product.name} addToShoppingCart={props.addToShoppingCart}
-                                                          id={product.id} description={product.description}
-                                                          price={product.price} photos={product.photos} quantity={product.quantity}/>)
+        orders = props.orders.map(order => <Order key={order.id} id={order.id} products={order.productsInCart}/>)
     }
     return (
         <div>
-            <h3>Товары:</h3>
-            {products}
+            <div className={style.title}>Orders</div>
+            <div className={style.productsInOrder}><div>{orders}</div></div>
         </div>
     )
 });
 
-export default ShoppingCart;
+export default Orders;

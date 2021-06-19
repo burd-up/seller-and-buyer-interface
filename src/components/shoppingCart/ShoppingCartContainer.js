@@ -2,21 +2,23 @@ import React from 'react';
 import {connect} from "react-redux";
 import {compose} from "redux";
 import {addToShoppingCart, CleanShoppingCart, deleteFromShoppingCart} from "../../redux/buyerReducer";
-import Buyer from "./Buyer";
+import ShoppingCart from "./ShoppingCart";
+import {productCartSelector} from "./selectors/selectors";
+import {addOrder, deleteOrder} from "../../redux/shopAssistantReducer";
 
-class BuyerContainer extends React.Component {
+
+class ShoppingCartContainer extends React.Component {
   render() {
-    return <Buyer {...this.props} />;
+    return <ShoppingCart {...this.props} />;
   }
 };
 
 let mapStateToProps = (state) => {
   return {
-    products: state.shopAssistantPage.products,
-    productsInCart: state.buyer.productsInCart
+    products: productCartSelector(state.shopAssistantPage.products, state.buyer.productsInCartId)
   }
 }
 
 export default compose(
-    connect(mapStateToProps,{addToShoppingCart, deleteFromShoppingCart, CleanShoppingCart})
-)(BuyerContainer)
+    connect(mapStateToProps,{addToShoppingCart, deleteFromShoppingCart, CleanShoppingCart, addOrder, deleteOrder})
+)(ShoppingCartContainer)

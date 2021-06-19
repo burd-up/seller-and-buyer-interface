@@ -4,13 +4,18 @@ import ShopAssistantContainer from "./components/shopAssistant/shopAssistantCont
 import Navbar from "./components/Navbar/header";
 import {Route, withRouter} from "react-router-dom";
 import BuyerContainer from "./components/buyer/BuyerContainer";
+import ShoppingCartContainer from "./components/shoppingCart/ShoppingCartContainer";
+import OrdersContainer from "./components/shoppingCart/orders/OrdersContainer";
+import style from './App.css';
 
 function App() {
   return (
-    <div>
+    <div className="app">
         <Navbar/>
+        <Route path='/shoppingCart' render={() => <ShoppingCartContainer/>}/>
         <Route path='/buyer' render={() => <BuyerContainer/>}/>
         <Route path='/shopAssistant' render={() => <ShopAssistantContainer/>}/>
+        <Route path='/orders' render={() => <OrdersContainer/>}/>
     </div>
   );
 }

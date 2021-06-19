@@ -1,16 +1,17 @@
 import React from 'react';
 import {NavLink} from "react-router-dom";
+import style from "./header.module.css";
+import logo from "../../public/shortcut-script-app.png"
 
 function Navbar() {
-  return (
-      <nav>
-        <div >
-          <NavLink to='/shopAssistant'>shopAssistant</NavLink>
+    return (
+        <div className={style.navbar}>
+            <nav className={style.header}>
+                <img className={style.logo} src={logo}/>
+                <NavLink className={style.button} to='/shopAssistant'>shop assistant</NavLink>
+                <NavLink className={style.button} to='/buyer'>buyer</NavLink>
+            </nav>
         </div>
-        <div >
-          <NavLink to='/buyer'>buyer</NavLink>
-        </div>
-      </nav>
-  )
+    )
 };
 export default Navbar;

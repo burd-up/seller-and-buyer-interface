@@ -3,6 +3,7 @@ import {connect} from "react-redux";
 import {compose} from "redux";
 import {addToShoppingCart, CleanShoppingCart, deleteFromShoppingCart} from "../../redux/buyerReducer";
 import Buyer from "./Buyer";
+import {productCartSelector} from "../shoppingCart/selectors/selectors";
 
 class BuyerContainer extends React.Component {
   render() {
@@ -12,8 +13,10 @@ class BuyerContainer extends React.Component {
 
 let mapStateToProps = (state) => {
   return {
+    productsInCart: productCartSelector(state.shopAssistantPage.products, state.buyer.productsInCartId),
     products: state.shopAssistantPage.products,
-    productsInCart: state.buyer.productsInCart
+    productsInCartId: state.buyer.productsInCartId,
+
   }
 }
 

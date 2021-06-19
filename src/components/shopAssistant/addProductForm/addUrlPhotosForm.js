@@ -1,15 +1,14 @@
 import React, {useState} from 'react';
 import {Field, reduxForm} from "redux-form";
 import Url from "./urlOfPhoto";
+import style from './addProductForm.module.css';
 
 function AddUrl(props) {
 
     let UrlForm = (props) => {
         return (
-            <form onSubmit={props.handleSubmit}>
-                <div>
-                    <Field component="input" name={"link"} type="url" placeholder="link to photo"/>
-                </div>
+            <form className={style.formURL} onSubmit={props.handleSubmit}>
+                    <Field className={style.input} component="input" name={"link"} type="url" placeholder="link to photo"/>
                 <button>AddURL</button>
             </form>
         )
@@ -24,7 +23,9 @@ function AddUrl(props) {
 
     return (<div>
             <UrlForm onSubmit={onSubmit}/>
+            <div className={style.list}>
             {urls}
+            </div>
         </div>
     )
 };
