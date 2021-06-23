@@ -1,9 +1,12 @@
 const ADD_TO_SHOPPING_CART = 'byer/ADD_TO_SHOPPING_CART';
 const DELETE_FROM_SHOPPING_CART = 'byer/DELETE_FROM_SHOPPING_CART';
 const CLEAN_SHOPPING_CART = 'byer/CLEAN_SHOPPING_CART';
+const ADD_CURRENT_PRODUCT = 'byer/ADD_CURRENT_PRODUCT';
+const DELETE_CURRENT_PRODUCT = 'byer/DELETE_CURRENT_PRODUCT';
 
 const initialState = {
     productsInCartId: [],
+    currentProduct: null,
 };
 
 const buyerReducer = (state = initialState, action) => {
@@ -30,6 +33,16 @@ const buyerReducer = (state = initialState, action) => {
                     };
                 }
             }
+        case ADD_CURRENT_PRODUCT:
+            return {
+                ...state,
+                currentProduct: action.id,
+            };
+        case DELETE_CURRENT_PRODUCT:
+            return {
+                ...state,
+                currentProduct: null,
+            };
         case CLEAN_SHOPPING_CART:
             return {
                 ...state,
@@ -43,5 +56,7 @@ const buyerReducer = (state = initialState, action) => {
 export const addToShoppingCart = (id) => ({type: ADD_TO_SHOPPING_CART, id});
 export const deleteFromShoppingCart = (id) => ({type: DELETE_FROM_SHOPPING_CART, id});
 export const CleanShoppingCart = () => ({type: CLEAN_SHOPPING_CART});
+export const addCurrentProduct = (id) => ({type: ADD_CURRENT_PRODUCT, id});
+export const deleteCurrentProduct = () => ({type: DELETE_CURRENT_PRODUCT});
 
 export default buyerReducer;

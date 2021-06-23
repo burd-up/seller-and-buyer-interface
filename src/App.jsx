@@ -7,6 +7,7 @@ import BuyerContainer from "./components/buyer/BuyerContainer";
 import ShoppingCartContainer from "./components/shoppingCart/ShoppingCartContainer";
 import OrdersContainer from "./components/shoppingCart/orders/OrdersContainer";
 import style from './App.css';
+import ProductPageContainer from "./components/productPage/ProductPageContainer";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
         <Route path='/buyer' render={() => <BuyerContainer/>}/>
         <Route path='/shopAssistant' render={() => <ShopAssistantContainer/>}/>
         <Route path='/orders' render={() => <OrdersContainer/>}/>
+        <Route path='/product/:productId?' render={() => <ProductPageContainer/>}/>
     </div>
   );
 }
