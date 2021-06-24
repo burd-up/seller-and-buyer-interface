@@ -3,6 +3,7 @@ import plus from '../../public/plus.svg';
 import minus from '../../public/minus.svg';
 import style from './product.module.css';
 import PhotosLarge from "./PhotosLarge";
+import Reviews from "../Reviews/Reviews";
 
 function ProductPage(props) {
 
@@ -27,7 +28,7 @@ function ProductPage(props) {
             <div>quantity: {product.quantity}</div>
             <div className={style.price}>{product.price * product.quantity} $</div>
         </div>
-
+        <Reviews reviews={props.reviews}/>
     </div>
 }
 

@@ -1,0 +1,88 @@
+.product {
+    display: grid;
+    grid-template-columns: 2fr 4fr ;
+    grid-auto-rows: minmax(80px, auto);
+    grid-column-gap: 15px;
+    grid-row-gap: 15px;
+    background-color: #FFFFFF;
+    border-bottom: 1px solid #71B467;
+    padding: 5px;
+    font-family: 'Mate SC', serif;
+    color: #71B467;
+    /*height: 330px;*/
+}
+.blockPhoto{
+    display: grid;
+    grid-template-rows: 2fr 4fr;
+    border-right: 1px solid #71B467;
+    padding: 5px;
+}
+.blockDescription{
+    border-right: 1px solid #71B467;
+    padding: 5px;
+    color: #000000;
+/*    background-image: url("../../../public/images/fon 2.jpg");
+    background-size: 100% auto;*/
+}
+.blockPrice{
+    display: grid;
+    grid-template-rows: 1fr 1fr 5fr ;
+    border-right: 1px solid #71B467;
+    padding: 5px;
+    text-align: center;
+    color: #000000;
+}
+.plusMinus{
+margin: 5px;
+}
+.name {
+    text-align: center;
+}
+.price {
+    margin-top: auto;
+    font-size: 25px;
+}
+.photo{
+    display: grid;
+    grid-auto-rows:200px;
+    grid-template-columns: 1fr 4fr 1fr;
+    width: 100%;
+}
+.chengePhoto {
+    height: 100%;
+    border: none;
+}
+.chengePhoto:hover {
+    height: 100%;
+    border: none;
+    background-color: #F7FAF8;
+}
+.photoImg {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 3px;
+    height: auto;
+    width: auto;
+    max-width: 100%;
+    max-height: 200px;
+}
+
+
+
+
+.reviews {
+    display: grid;
+    grid-template-columns: 1fr 10fr;
+    grid-auto-rows: minmax(80px, auto);
+    grid-column-gap: 15px;
+    grid-row-gap: 15px;
+    background-color: #FFFFFF;
+    border: 1px solid #71B467;
+    padding: 5px;
+    font-family: 'Mate SC', serif;
+    color: #71B467;
+}
+
+
+

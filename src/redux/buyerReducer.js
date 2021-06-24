@@ -1,12 +1,14 @@
+import {reviewsAPI} from "../api/api";
+
 const ADD_TO_SHOPPING_CART = 'byer/ADD_TO_SHOPPING_CART';
 const DELETE_FROM_SHOPPING_CART = 'byer/DELETE_FROM_SHOPPING_CART';
 const CLEAN_SHOPPING_CART = 'byer/CLEAN_SHOPPING_CART';
-const ADD_CURRENT_PRODUCT = 'byer/ADD_CURRENT_PRODUCT';
-const DELETE_CURRENT_PRODUCT = 'byer/DELETE_CURRENT_PRODUCT';
+const SET_REVIEWS_PRODUCT = 'byer/SET_REVIEWS_PRODUCT';
+const DELETE_REVIEWS_PRODUCT = 'byer/DELETE_REVIEWS_PRODUCT';
 
 const initialState = {
     productsInCartId: [],
-    currentProduct: null,
+    reviewsProduct: [],
 };
 
 const buyerReducer = (state = initialState, action) => {
@@ -33,15 +35,15 @@ const buyerReducer = (state = initialState, action) => {
                     };
                 }
             }
-        case ADD_CURRENT_PRODUCT:
+        case SET_REVIEWS_PRODUCT:
             return {
                 ...state,
-                currentProduct: action.id,
+                reviewsProduct: action.reviews,
             };
-        case DELETE_CURRENT_PRODUCT:
+        case DELETE_REVIEWS_PRODUCT:
             return {
                 ...state,
-                currentProduct: null,
+                reviewsProduct: [],
             };
         case CLEAN_SHOPPING_CART:
             return {
@@ -53,10 +55,20 @@ const buyerReducer = (state = initialState, action) => {
     }
 };
 
+//Thunks is hear!
+export const requestReviews = (currentPage, pageSize) => {
+    return async (dispatch) => {
+        /*dispatch(toggleIsFetching(true));*/
+        let data = await reviewsAPI.getReviews(currentPage, pageSize);
+        console.log(data);
+        dispatch(setReviewsProduct(data));
+    }
+}
+
 export const addToShoppingCart = (id) => ({type: ADD_TO_SHOPPING_CART, id});
 export const deleteFromShoppingCart = (id) => ({type: DELETE_FROM_SHOPPING_CART, id});
 export const CleanShoppingCart = () => ({type: CLEAN_SHOPPING_CART});
-export const addCurrentProduct = (id) => ({type: ADD_CURRENT_PRODUCT, id});
-export const deleteCurrentProduct = () => ({type: DELETE_CURRENT_PRODUCT});
+export const setReviewsProduct = (reviews) => ({type: SET_REVIEWS_PRODUCT, reviews});
+export const deleteReviewsProduct = () => ({type: DELETE_REVIEWS_PRODUCT});
 
 export default buyerReducer;

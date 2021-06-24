@@ -1,7 +1,7 @@
 import React from 'react';
 import {connect} from "react-redux";
 import {compose} from "redux";
-import {addToShoppingCart, CleanShoppingCart, deleteFromShoppingCart} from "../../redux/buyerReducer";
+import {addToShoppingCart, CleanShoppingCart, deleteFromShoppingCart, requestReviews} from "../../redux/buyerReducer";
 import {addOrder, deleteOrder} from "../../redux/shopAssistantReducer";
 import {withRouter} from "react-router-dom";
 import ProductPage from "./ProductPage";
@@ -10,7 +10,7 @@ import ProductPage from "./ProductPage";
 class ProductPageContainer extends React.Component {
 
     componentDidMount() {
-        console.log("Container" + this.props.match.params.productId)
+        this.props.requestReviews();
     }
 
     render() {
@@ -25,10 +25,11 @@ let mapStateToProps = (state) => {
     return {
         productsInCartId: state.buyer.productsInCartId,
         products: state.shopAssistantPage.products,
+        reviews: state.buyer.reviewsProduct,
     }
 }
 
 export default compose(
-    connect(mapStateToProps, {addToShoppingCart, deleteFromShoppingCart, CleanShoppingCart, addOrder, deleteOrder}),
+    connect(mapStateToProps, {addToShoppingCart, deleteFromShoppingCart, CleanShoppingCart, addOrder, deleteOrder, requestReviews}),
     withRouter,
 )(ProductPageContainer)

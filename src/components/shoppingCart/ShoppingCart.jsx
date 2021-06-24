@@ -1,6 +1,6 @@
 import React from 'react';
 import ProductForCart from "./product/productForCart";
-import {deleteFromShoppingCart} from "../../redux/buyerReducer";
+import {CleanShoppingCart, deleteFromShoppingCart} from "../../redux/buyerReducer";
 import style from "./shoppingCart.module.css";
 import {NavLink} from "react-router-dom";
 
@@ -25,7 +25,7 @@ const ShoppingCart = React.memo((props) => {
             <div>{products}</div>
             {props.products.length !== 0 ? <button className={style.doOrder} onClick={() => {
                 props.addOrder(props.products);
-                props.deleteFromShoppingCart();
+                props.CleanShoppingCart();
             }}>do order</button>
                 : <NavLink onClick={() => {
                     props.addOrder(props.products);
