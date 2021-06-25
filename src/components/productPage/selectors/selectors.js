@@ -1,6 +1,4 @@
-import React from 'react';
-
-export const productCartSelector = (products, productsInCartId) => {
+export const oneProductCartSelector = (products, productsInCartId, productId) => {
 //создаем объект где свойство это элемент массива, а его значение это колличество таких элементов в массиве
     let obj = productsInCartId.reduce(function (acc, el) {
         acc[el] = (acc[el] || 0) + 1;
@@ -19,6 +17,7 @@ export const productCartSelector = (products, productsInCartId) => {
         newProduct.quantity = obj[newProduct.id.toString()]
         return newProduct
     })
-    return productInCartCurrent;
+    //получаем массив с одним продуктом который мы ищем, затем выбираем этот продукт по индексу
+    let ourProduct = productInCartCurrent.filter(el => el.id === productId)[0];
+    return ourProduct;
 }
-

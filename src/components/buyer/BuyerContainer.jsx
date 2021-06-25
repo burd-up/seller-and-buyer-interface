@@ -1,7 +1,12 @@
 import React from 'react';
 import {connect} from "react-redux";
 import {compose} from "redux";
-import {addToShoppingCart, CleanShoppingCart, deleteFromShoppingCart} from "../../redux/buyerReducer";
+import {
+  addCurrentProduct,
+  addToShoppingCart,
+  CleanShoppingCart,
+  deleteFromShoppingCart
+} from "../../redux/buyerReducer";
 import Buyer from "./Buyer";
 import {productCartSelector} from "../shoppingCart/selectors/selectors";
 
@@ -21,5 +26,5 @@ let mapStateToProps = (state) => {
 }
 
 export default compose(
-    connect(mapStateToProps,{addToShoppingCart, deleteFromShoppingCart, CleanShoppingCart})
+    connect(mapStateToProps,{addToShoppingCart, deleteFromShoppingCart, CleanShoppingCart, addCurrentProduct})
 )(BuyerContainer)

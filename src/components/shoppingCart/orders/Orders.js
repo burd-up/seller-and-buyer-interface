@@ -3,7 +3,7 @@ import Order from "./Order";
 import style from './order.module.css';
 
 const Orders = React.memo((props) => {
-    debugger
+
     let orders;
     if (props.orders.length === 0) {
         orders = "Нет Заказов"

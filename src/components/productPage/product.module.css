@@ -1,42 +1,47 @@
 .product {
     display: grid;
-    grid-template-columns: 2fr 4fr ;
+    grid-template-columns: 3fr 4fr ;
     grid-auto-rows: minmax(80px, auto);
     grid-column-gap: 15px;
     grid-row-gap: 15px;
     background-color: #FFFFFF;
-    border-bottom: 1px solid #71B467;
+    border: 1px solid #71B467;
+    border-radius: 3px;
     padding: 5px;
     font-family: 'Mate SC', serif;
     color: #71B467;
-    /*height: 330px;*/
+    min-height: 400px;
+
 }
-.blockPhoto{
+/*.blockPhoto{
     display: grid;
-    grid-template-rows: 2fr 4fr;
+    grid-template-rows: 1fr 4fr;
     border-right: 1px solid #71B467;
     padding: 5px;
-}
+}*/
 .blockDescription{
-    border-right: 1px solid #71B467;
-    padding: 5px;
+    /*border-right: 1px solid #71B467;*/
+    padding-top: 5px;
     color: #000000;
 /*    background-image: url("../../../public/images/fon 2.jpg");
     background-size: 100% auto;*/
 }
 .blockPrice{
     display: grid;
-    grid-template-rows: 1fr 1fr 5fr ;
-    border-right: 1px solid #71B467;
+    grid-template-columns: 10fr 3fr 5fr 10fr;
     padding: 5px;
     text-align: center;
     color: #000000;
+    justify-items: center;
+    align-items: center;
 }
 .plusMinus{
 margin: 5px;
 }
 .name {
     text-align: center;
+    font-family: 'Mate SC', fantasy;
+    color: #71B467;
 }
 .price {
     margin-top: auto;
@@ -44,12 +49,16 @@ margin: 5px;
 }
 .photo{
     display: grid;
-    grid-auto-rows:200px;
+    /*grid-auto-rows:200px;*/
     grid-template-columns: 1fr 4fr 1fr;
     width: 100%;
+    height: 100%;
+    justify-items: center;
+    align-items: center;
 }
 .chengePhoto {
     height: 100%;
+    width: 100%;
     border: none;
 }
 .chengePhoto:hover {
@@ -58,15 +67,43 @@ margin: 5px;
     background-color: #F7FAF8;
 }
 .photoImg {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
+
+ /*   display: block;*/
+   /* margin-left: auto;
+    margin-right: auto;*/
     border-radius: 3px;
     height: auto;
     width: auto;
     max-width: 100%;
-    max-height: 200px;
+    max-height: 300px;
+    justify-content: center;
+}
+.titleOfdescription{
+    font-size: 20px;
+    color: #000000;
 }
 
+.topContent{
+    display: grid;
+    grid-template-columns: 12fr 1fr;
+    background-color: #FFFFFF;
+    text-align: center;
+    font-family: 'Mate SC', fantasy;
+    color: #71B467;
+    margin: 0 -5px 0 -5px;
+    text-decoration: none;
+    background-image: url("../../public/images/fon 1.jpg");
+    background-size: 100% auto;
+}
+.discription{
+    overflow: auto;
+}
+.buttonForAdd{
+    display: block;
+    width: 100%;
+    margin: 5px auto 5px auto;
+    padding: 5px;
+    border: 1px solid #71B467;
+}
 
 

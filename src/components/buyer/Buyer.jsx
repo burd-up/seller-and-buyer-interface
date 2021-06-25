@@ -3,6 +3,7 @@ import ProductForBuyer from "./product/productForBuyer";
 import {NavLink} from "react-router-dom";
 import style from "../buyer/buyer.module.css";
 import cartImg from '../../public/shopping_cart_black_24dp.svg';
+import Cart from "./Cart";
 
 const Buyer = React.memo((props) => {
     let products;
@@ -14,15 +15,16 @@ const Buyer = React.memo((props) => {
                                                                   name={product.name}
                                                                   addToShoppingCart={props.addToShoppingCart}
                                                                   id={product.id} description={product.description}
-                                                                  price={product.price} photos={product.photos} productsInCartId={props.productsInCartId}/>)
+                                                                  price={product.price} photos={product.photos}
+                                                                  productsInCartId={props.productsInCartId} addCurrentProduct={props.addCurrentProduct}/>)
     }
 
     return (
         <div>
-            <NavLink className={style.list} to='/shoppingCart'>
+            <div className={style.list}>
                 <h2>Interface of buyer</h2>
-                <div className={style.orders}><img src={cartImg}/><br/>{props.productsInCart.length}</div>
-            </NavLink>
+                <Cart productsInCart={props.productsInCart}/>
+            </div>
             <h3 className={style.title}>Products</h3>
             <div className={style.listOfProducts}>{products}</div>
         </div>

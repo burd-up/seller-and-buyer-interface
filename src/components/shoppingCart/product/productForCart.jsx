@@ -10,9 +10,11 @@ function ProductForCart(props) {
     return <div className={style.product}>
         <div className={style.blockPhoto}>
             <div className={style.name}><h1>{props.name}</h1></div>
+            <div onClick={() => props.addCurrentProduct(props.id)}>
             <NavLink to={'/product/' + props.id}>
             <Photos photos={props.photos}/>
             </NavLink>
+            </div>
         </div>
         <div className={style.blockDescription}>{props.description}</div>
         <div className={style.blockPrice}>

@@ -19,9 +19,13 @@
     background-size: 100% auto;
 }
 
-.orders {
-    padding-top: 5px;
+.nav{
     text-decoration: none;
+}
+
+.orders {
+    padding: 5px 0px 5px 0px;
+/*    text-decoration: none;*/
     margin: 5px 0px 5px 0px;
 /*    margin-left: auto;
     margin-right: auto;*/
@@ -30,6 +34,7 @@
     transition: .3s;
     width: 90%;
     background-color: #F7FAF8;
+    text-decoration: none;
 }
 
 .orders:hover {

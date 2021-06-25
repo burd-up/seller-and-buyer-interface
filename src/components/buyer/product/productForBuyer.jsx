@@ -14,26 +14,28 @@ function ProductForBuyer(props) {
     const [changer, setChanger] = useState(false);
 
     return <div className={style.product}>
-        <NavLink to={'/product/' + props.id}>
-            <Photos photos={props.photos}/>
+        <div onClick={() => props.addCurrentProduct(props.id)}>
+            <NavLink to={'/product/' + props.id}>
+                <Photos photos={props.photos}/>
             </NavLink>
-            <div className={style.name}>{props.name}</div>
-            <div className={style.price}>price: {props.price} $</div>
-            {!changer ?
-                <button className={style.descriptionButtonOpen} onClick={() => setChanger(true)}>description </button>
-                : <div className={style.description}>
-                    <textarea className={style.descriptionText} value={props.description}></textarea>
-                    <button className={style.descriptionButton} onClick={() => setChanger(false)}>x</button>
-                </div>
-            }
-            {changerAdd ? <button className={style.button} onClick={() => {
-                    props.deleteFromShoppingCart(props.id);
-                }}>delete
-                </button>
-                : <button className={style.buttonAdd} onClick={() => {
-                    props.addToShoppingCart(props.id);
-                }}>add
-                </button>}
+        </div>
+        <div className={style.name}>{props.name}</div>
+        <div className={style.price}>price: {props.price} $</div>
+        {!changer ?
+            <button className={style.descriptionButtonOpen} onClick={() => setChanger(true)}>description </button>
+            : <div className={style.description}>
+                <textarea className={style.descriptionText} value={props.description}></textarea>
+                <button className={style.descriptionButton} onClick={() => setChanger(false)}>x</button>
+            </div>
+        }
+        {changerAdd ? <button className={style.button} onClick={() => {
+                props.deleteFromShoppingCart(props.id);
+            }}>delete
+            </button>
+            : <button className={style.buttonAdd} onClick={() => {
+                props.addToShoppingCart(props.id);
+            }}>add
+            </button>}
     </div>
 }
 

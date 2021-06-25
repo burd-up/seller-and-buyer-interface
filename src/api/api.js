@@ -6,7 +6,7 @@ const instance = axios.create({
 
 export const reviewsAPI = {
     getReviews() {
-        return instance.get(`https://jsonplaceholder.typicode.com/posts`).then(response => {
+        return instance.get(`https://jsonplaceholder.typicode.com/posts?id<10`).then(response => {
             return response.data
         })
     },

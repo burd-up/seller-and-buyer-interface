@@ -16,7 +16,7 @@ const ShoppingCart = React.memo((props) => {
                                                                  addToShoppingCart={props.addToShoppingCart}
                                                                  id={product.id} description={product.description}
                                                                  price={product.price} photos={product.photos}
-                                                                 quantity={product.quantity}/>)
+                                                                 quantity={product.quantity} addCurrentProduct={props.addCurrentProduct}/>)
     }
     return (
         <div>
