@@ -12,7 +12,8 @@ const Product = React.memo((props) => {
         setChangeForm(false)
     }
 
-    useEffect(() => {changeForm ? props.photos.map(url => {props.addURLForChange(url, props.id)}): props.deleteURLForChangeOnProductID(props.id)}, [changeForm]);
+/*    useEffect(() => {changeForm ? props.photos.map(url => {props.addURLForChange(url, props.id)}): props.deleteURLForChangeOnProductID(props.id)},
+        [changeForm]);*/
 
 
     return <div className={style.product}>

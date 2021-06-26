@@ -4,20 +4,14 @@ import AddProduct from "./addProductForm/addProductForm";
 import {NavLink} from "react-router-dom";
 import style from './shopAssistant.module.css';
 import list from '../../public/list.svg';
-import {deleteAllURLForChange} from "../../redux/addProductFormReducer";
 
 const ShopAssistant = React.memo((props) => {
     let products;
     if (props.products.length === 0) {
         products = "No products"
     } else {
-        products = props.products.map(product => <Product key={product.id} deleteProduct={props.deleteProduct}
-                                                          name={product.name}
-                                                          id={product.id} description={product.description}
-                                                          price={product.price} photos={product.photos}
-                                                          changeProduct={props.changeProduct}
-                                                          deleteURLForChange={props.deleteURLForChange} addURLForChange={props.addURLForChange}
-                                                          urlsForChange={props.urlsForChange} deleteURLForChangeOnProductID={props.deleteURLForChangeOnProductID}/>)
+        products = props.products.map(product => <Product key={product.id} {...product} deleteProduct={props.deleteProduct}
+                                                          changeProduct={props.changeProduct}/>)
     }
     return (
         <div>

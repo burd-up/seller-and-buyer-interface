@@ -1,22 +1,31 @@
 import React, {useState} from 'react';
-import {Field, reduxForm} from "redux-form";
-import AddUrl from "./addUrlPhotosForm";
 import style from './addProductForm.module.css';
+import UrlList from "./UrlList";
+import {UrlInput} from "../ChangeForm/cangeProductForm";
 
 function AddProduct(props) {
-    let urls = props.urls.map(url => url.url);
 
     const [name, setName] = useState('');
     const [description, setDescription] = useState('');
     const [price, setPrice] = useState(null);
 
+// стэйт для формы добавления URL картинок
+    const [currentUrl, setCurrentUrl] = useState('');
+    const [arrUrl, setArrUrl] = useState([]);
+
+//вспомогательная функция управления стэйтом
+    const deleteUrl = (number) => {
+        setArrUrl(arrUrl.filter((el, i, arr) => number !== i))
+    }
+
+//отправка новых параметров в стор
     const onSubmit = () => {
-        props.addProduct(name, description, price, urls);
-        props.deleteAllURL()
+        props.addProduct(name, description, price, arrUrl);
         setName('');
         setDescription('');
         setPrice(null);
-
+        setCurrentUrl('');
+        setArrUrl([]);
     }
 
     return (<div className={style.form}>
@@ -26,9 +35,9 @@ function AddProduct(props) {
                 <input className={style.input} type = "number" onChange={(e) => {setPrice(e.target.value)}} value={price} placeholder="price"/>
             </div>
             <textarea className={style.inputDescription} type = "text" onChange={(e) => {setDescription(e.target.value)}} value={description} placeholder="description"/>
-            <AddUrl deleteURL={props.deleteURL} addURL={props.addURL} urls={props.urls}/>
+            <UrlInput setCurrentUrl={setCurrentUrl} currentUrl={currentUrl} arrUrl={arrUrl} setArrUrl={setArrUrl}/>
+            <UrlList arrUrl={arrUrl} deleteUrl={deleteUrl}/>
             <button onClick={onSubmit}>add</button>
-            {/*<ProductForm onSubmit={onSubmit}/>*/}
         </div>
     )
 };

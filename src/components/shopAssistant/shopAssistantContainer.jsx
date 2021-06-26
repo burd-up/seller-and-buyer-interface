@@ -29,7 +29,5 @@ let mapStateToProps = (state) => {
 
 export default compose(
     connect(mapStateToProps,{addProduct,
-      deleteProduct, addURL, deleteURL,
-      deleteAllURL, changeProduct, addURLForChange,
-      deleteURLForChange, deleteAllURLForChange, deleteURLForChangeOnProductID})
+      deleteProduct, changeProduct,})
 )(ShopAssistantContainer)

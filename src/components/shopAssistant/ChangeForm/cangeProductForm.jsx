@@ -1,18 +1,35 @@
 import React, {useCallback, useState} from 'react';
-import {Field, reduxForm} from "redux-form";
-import AddUrl from "../addProductForm/addUrlPhotosForm";
 import style from './changeProductForm.module.css';
+import UrlList from "../addProductForm/UrlList";
+
+export const UrlInput = (props) =>{
+    return <div className={style.formURL}>
+    <input className={style.input} type = 'url' onChange={(e) => {props.setCurrentUrl(e.target.value)}} value={props.currentUrl} placeholder="link to photo"/>
+    <button onClick={()=> {
+        props.setArrUrl([props.currentUrl, ...props.arrUrl]);
+        props.setCurrentUrl('')
+    }}>AddURL</button>
+</div>
+}
+
 
 const ChangeProduct = React.memo((props) =>{
-    const arrOfUrl = props.urlsForChange.filter(url => url.idProduct === props.id);
-    let urls = arrOfUrl.map(url => url.url);
 
     const [name, setName] = useState(props.name);
     const [description, setDescription] = useState(props.description);
     const [price, setPrice] = useState(props.price);
 
+// стэйт для формы добавления URL картинок
+    const [currentUrl, setCurrentUrl] = useState('');
+    const [arrUrl, setArrUrl] = useState(props.photos);
+
+//вспомогательная функция управления стэйтом
+    const deleteUrl = (number) => {
+        setArrUrl(arrUrl.filter((el, i, arr) => number !== i))
+    }
+//отправка новых параметров в стор
     const onSubmit = () => {
-        props.changeProduct(props.id, name, description, price, urls);
+        props.changeProduct(props.id, name, description, price, arrUrl);
         props.helpToSetChangeForm();
     }
 
@@ -35,9 +52,11 @@ const ChangeProduct = React.memo((props) =>{
             <textarea className={style.inputDescription} type="text" onChange={(e) => {
                 setDescription(e.target.value)
             }} value={description} placeholder="description"/>
-            <AddUrl deleteURL={props.deleteURLForChange} addURL={props.addURLForChange} urls={props.urlsForChange} id={props.id}/>
+
+            <UrlInput setCurrentUrl={setCurrentUrl} currentUrl={currentUrl} arrUrl={arrUrl} setArrUrl={setArrUrl}/>
+            <UrlList arrUrl={arrUrl} deleteUrl={deleteUrl}/>
+
             <button onClick={onSubmit}>change</button>
-            {/*            <ProductForm onSubmit={onSubmit}/>*/}
         </div>
 
     )

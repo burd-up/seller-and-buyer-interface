@@ -6,7 +6,7 @@ function Url(props) {
     return (<div className={style.formOneURL}>
             <img className={style.imgUrl} src={props.url}/>
             <p className={style.URL}>{props.url}</p>
-            <button className={style.buttonForDeleteUrl} onClick={() => props.deleteURL(props.id)}>delete link</button>
+            <button className={style.buttonForDeleteUrl} onClick={() => props.deleteURL()}>delete link</button>
         </div>
     )
 };
