@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import style from './addProductForm.module.css';
 import UrlList from "./UrlList";
-import {UrlInput} from "../ChangeForm/cangeProductForm";
+import {UrlInput} from "../ChangeForm/UrlInput";
 
 function AddProduct(props) {
 
@@ -13,7 +13,7 @@ function AddProduct(props) {
     const [currentUrl, setCurrentUrl] = useState('');
     const [arrUrl, setArrUrl] = useState([]);
 
-//вспомогательная функция управления стэйтом
+//вспомогательная функция управления стэйтом формы добавления URL картинок
     const deleteUrl = (number) => {
         setArrUrl(arrUrl.filter((el, i, arr) => number !== i))
     }
