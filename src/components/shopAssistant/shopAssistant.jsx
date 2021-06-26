@@ -9,7 +9,7 @@ import {deleteAllURLForChange} from "../../redux/addProductFormReducer";
 const ShopAssistant = React.memo((props) => {
     let products;
     if (props.products.length === 0) {
-        products = "Нет товаров"
+        products = "No products"
     } else {
         products = props.products.map(product => <Product key={product.id} deleteProduct={props.deleteProduct}
                                                           name={product.name}

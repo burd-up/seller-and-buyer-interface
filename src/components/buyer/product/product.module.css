@@ -13,6 +13,7 @@
 }
 .name {
     font-size: 30px;
+    margin: 5px;
 }
 .description {
     display: grid;
@@ -40,6 +41,7 @@
 }
 .descriptionButtonOpen {
     height: 62px;
+    width: 100%;
     border: 1px solid #71B467;
 }
 .buttonAdd {
@@ -47,11 +49,13 @@
 }
 .price {
     font-size: 13px;
+    margin: 5px;
 }
 .button {
     border: 1px solid #C56183;
     color: #C56183;
     transition: .3s;
+    width: 100%;
 }
 .button:hover {
     background-color: #C56183;

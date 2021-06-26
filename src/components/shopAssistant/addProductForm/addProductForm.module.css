@@ -62,6 +62,8 @@ input[type="search"]::placeholder { color: #ffd595; }
     border-radius: 3px;
     padding: 5px;
     align-content: center;
+    overflow: auto;
+    max-height: 300px;
 }
 .URL{
     overflow: hidden; /* Обрезаем все, что не помещается в область */

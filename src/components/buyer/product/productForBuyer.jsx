@@ -1,7 +1,9 @@
-import React, {useState} from 'react';
-import Photos from "../../shopAssistant/product/Photos";
+import React, {useEffect, useState} from 'react';
 import style from "../../buyer/product/product.module.css";
-import {NavLink} from "react-router-dom";
+import PhotoLink from "./PhotoLink";
+import BlockDescription from "./BlockDescription";
+import NameAndPriceBlock from "./NameAndPriceBlock";
+import ChangingButton from "../../shopAssistant/product/ChangingButton";
 
 function ProductForBuyer(props) {
 
@@ -9,33 +11,13 @@ function ProductForBuyer(props) {
     if (props.productsInCartId.indexOf(props.id) !== -1) {
         changerAdd = true;
     }
-    ;
-
-    const [changer, setChanger] = useState(false);
 
     return <div className={style.product}>
-        <div onClick={() => props.addCurrentProduct(props.id)}>
-            <NavLink to={'/product/' + props.id}>
-                <Photos photos={props.photos}/>
-            </NavLink>
-        </div>
-        <div className={style.name}>{props.name}</div>
-        <div className={style.price}>price: {props.price} $</div>
-        {!changer ?
-            <button className={style.descriptionButtonOpen} onClick={() => setChanger(true)}>description </button>
-            : <div className={style.description}>
-                <textarea className={style.descriptionText} value={props.description}></textarea>
-                <button className={style.descriptionButton} onClick={() => setChanger(false)}>x</button>
-            </div>
-        }
-        {changerAdd ? <button className={style.button} onClick={() => {
-                props.deleteFromShoppingCart(props.id);
-            }}>delete
-            </button>
-            : <button className={style.buttonAdd} onClick={() => {
-                props.addToShoppingCart(props.id);
-            }}>add
-            </button>}
+        <PhotoLink photos={props.photos} addCurrentProduct={props.addCurrentProduct} id={props.id}/>
+        <NameAndPriceBlock name={props.name} price={props.price}/>
+        <BlockDescription description={props.description}/>
+        <ChangingButton condition={changerAdd} functionOne={() => {props.deleteFromShoppingCart(props.id)}} functionTwo={() => {props.addToShoppingCart(props.id)}}
+                        textOne={'delete'} textTwo={'add'} styleOne={style.button}/>
     </div>
 }
 

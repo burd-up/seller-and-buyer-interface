@@ -21,6 +21,7 @@
     border-right: 1px solid #71B467;
     padding: 5px;
     color: #000000;
+    overflow: auto;
 /*    background-image: url("../../../public/images/fon 2.jpg");
     background-size: 100% auto;*/
 }

@@ -1,14 +1,17 @@
-import React, {useEffect, useState} from 'react';
+import React, {useCallback, useEffect, useState} from 'react';
 import plus from '../../public/plus.svg';
 import minus from '../../public/minus.svg';
 import style from './product.module.css';
 import PhotosLarge from "./PhotosLarge";
 import Reviews from "../Reviews/Reviews";
 import Cart from "../buyer/Cart";
+import PluseMinusButton from "./PluseMinusButton";
 
 const ProductPage = React.memo ((props) =>{
 
     const [isReviews, setIsReviews] = useState(false);
+
+    const closeReviews = useCallback(() => setIsReviews(false), [isReviews]);
 
     let product = props.products.filter(el => el.id === Number(props.productId))[0];
     return <div>
@@ -28,19 +31,13 @@ const ProductPage = React.memo ((props) =>{
             <button onClick={() => props.addToShoppingCart(Number(props.productId))} className={style.buttonForAdd}>add</button>
             : <div className={style.blockPrice}>
                 <div></div>
-                <div>
-                    <button className={style.plusMinus} onClick={() => {
-                        props.addToShoppingCart(product.id)
-                    }}><img src={plus}/></button>
-                    <button className={style.plusMinus} onClick={() => {
-                        props.deleteFromShoppingCart(product.id)
-                    }}><img src={minus}/></button>
-                </div>
+                <PluseMinusButton addToShoppingCart={props.addToShoppingCart} deleteFromShoppingCart={props.deleteFromShoppingCart}
+                                  id={props.thisProductsInCart.id}/>
                 <div>quantity: {props.thisProductsInCart.quantity}<br/>price: {props.thisProductsInCart.price * props.thisProductsInCart.quantity}</div>
-                {/*<div className={style.price}>{product.price * product.quantity} $</div>*/}
             </div>}
 
-        {isReviews? <Reviews reviews={props.reviews}/> : <button onClick={() => setIsReviews(true)} className={style.buttonForAdd}>Reviews</button>}
+        {isReviews? <Reviews closeReviews={closeReviews} reviews={props.reviews}/> :
+            <button onClick={() => setIsReviews(true)} className={style.buttonForAdd}>Reviews</button>}
 
     </div>
 })

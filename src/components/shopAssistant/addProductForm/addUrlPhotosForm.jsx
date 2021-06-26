@@ -16,7 +16,7 @@ function AddUrl(props) {
     UrlForm = reduxForm({form: 'newURL'})(UrlForm);
 
     const onSubmit = (formData) => {
-        props.addURL(formData.link);
+        props.addURL(formData.link, props.id);
     }
 
     let urls = props.urls.map(url => <Url deleteURL={props.deleteURL} id={url.id} url={url.url}/>)

@@ -7,7 +7,7 @@ import {NavLink} from "react-router-dom";
 const ShoppingCart = React.memo((props) => {
     let products;
     if (props.products.length === 0) {
-        products = "Нет товаров в корзине"
+        products = "No products in the cart"
     } else {
 
         products = props.products.map(product => <ProductForCart key={product.id}
@@ -27,10 +27,7 @@ const ShoppingCart = React.memo((props) => {
                 props.addOrder(props.products);
                 props.CleanShoppingCart();
             }}>do order</button>
-                : <NavLink onClick={() => {
-                    props.addOrder(props.products);
-                    props.deleteFromShoppingCart();
-                }} className={style.button} to='/buyer'>to shopping</NavLink>}
+                : <NavLink className={style.button} to='/buyer'>to shopping</NavLink>}
         </div>
     )
 });

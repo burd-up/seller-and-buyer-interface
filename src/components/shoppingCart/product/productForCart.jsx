@@ -1,27 +1,19 @@
 import React from 'react';
-import Photos from "../../shopAssistant/product/Photos";
-import plus from '../../../public/plus.svg';
-import minus from '../../../public/minus.svg';
 import style from './product.module.css';
-import {NavLink} from "react-router-dom";
+import PluseMinusButton from "../../productPage/PluseMinusButton";
+import PhotoLink from "../../buyer/product/PhotoLink";
 
 function ProductForCart(props) {
 
     return <div className={style.product}>
         <div className={style.blockPhoto}>
             <div className={style.name}><h1>{props.name}</h1></div>
-            <div onClick={() => props.addCurrentProduct(props.id)}>
-            <NavLink to={'/product/' + props.id}>
-            <Photos photos={props.photos}/>
-            </NavLink>
-            </div>
+            <PhotoLink photos={props.photos} addCurrentProduct={props.addCurrentProduct} id={props.id}/>
         </div>
         <div className={style.blockDescription}>{props.description}</div>
         <div className={style.blockPrice}>
-            <div >
-                <button className={style.plusMinus} onClick={() => {props.addToShoppingCart(props.id)}}><img src={plus}/></button>
-                <button className={style.plusMinus} onClick={() => {props.deleteFromShoppingCart(props.id)}}><img src={minus}/></button>
-            </div>
+            <PluseMinusButton addToShoppingCart={props.addToShoppingCart} deleteFromShoppingCart={props.deleteFromShoppingCart}
+                              id={props.id}/>
             <div>quantity: {props.quantity}</div>
             <div className={style.price}>{props.price * props.quantity} $</div>
         </div>

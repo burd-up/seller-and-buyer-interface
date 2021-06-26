@@ -6,7 +6,7 @@ const Orders = React.memo((props) => {
 
     let orders;
     if (props.orders.length === 0) {
-        orders = "Нет Заказов"
+        orders = "No orders"
     } else {
         orders = props.orders.map(order => <Order key={order.id} id={order.id} products={order.productsInCart}/>)
     }

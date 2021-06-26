@@ -1,6 +1,6 @@
 .product {
     display: grid;
-    grid-template-columns: 3fr 4fr ;
+    grid-template-columns: 3fr 5fr ;
     grid-auto-rows: minmax(80px, auto);
     grid-column-gap: 15px;
     grid-row-gap: 15px;
@@ -8,23 +8,15 @@
     border: 1px solid #71B467;
     border-radius: 3px;
     padding: 5px;
-    font-family: 'Mate SC', serif;
     color: #71B467;
     min-height: 400px;
 
 }
-/*.blockPhoto{
-    display: grid;
-    grid-template-rows: 1fr 4fr;
-    border-right: 1px solid #71B467;
-    padding: 5px;
-}*/
+
 .blockDescription{
-    /*border-right: 1px solid #71B467;*/
     padding-top: 5px;
     color: #000000;
-/*    background-image: url("../../../public/images/fon 2.jpg");
-    background-size: 100% auto;*/
+    overflow: auto;
 }
 .blockPrice{
     display: grid;
@@ -40,7 +32,6 @@ margin: 5px;
 }
 .name {
     text-align: center;
-    font-family: 'Mate SC', fantasy;
     color: #71B467;
 }
 .price {
@@ -49,8 +40,8 @@ margin: 5px;
 }
 .photo{
     display: grid;
-    /*grid-auto-rows:200px;*/
     grid-template-columns: 1fr 4fr 1fr;
+    grid-column-gap: 5px;
     width: 100%;
     height: 100%;
     justify-items: center;
@@ -68,9 +59,6 @@ margin: 5px;
 }
 .photoImg {
 
- /*   display: block;*/
-   /* margin-left: auto;
-    margin-right: auto;*/
     border-radius: 3px;
     height: auto;
     width: auto;
@@ -97,6 +85,7 @@ margin: 5px;
 }
 .discription{
     overflow: auto;
+    max-height: 500px;
 }
 .buttonForAdd{
     display: block;

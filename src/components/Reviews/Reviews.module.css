@@ -104,6 +104,20 @@ margin: 5px;
     font-size: 15px ;
     color: #000000;
 }
+.titleOfReviews{
+    display: grid;
+    grid-template-columns: 4fr 16fr 2fr;
+    justify-items: center;
+    align-items: center;
+    font-family: 'Mate SC', serif;
+    color: #71B467;
+}
+.buttonCloseReviews{
+    width: 40px;
+    height: 40px;
+   /* border-radius: 3px;
+    border: 1px solid #71B467;*/
+}
 
 
 

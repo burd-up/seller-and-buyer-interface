@@ -5,6 +5,7 @@
     margin-left: auto;
     margin-right: auto;
     padding: 5px;
+    font-family: 'Mate SC', fantasy;
     min-height: 98vh;
 }
 ::-webkit-scrollbar {

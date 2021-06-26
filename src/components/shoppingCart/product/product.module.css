@@ -7,7 +7,6 @@
     background-color: #FFFFFF;
     border-bottom: 1px solid #71B467;
     padding: 5px;
-    font-family: 'Mate SC', serif;
     color: #71B467;
     height: 330px;
 }
@@ -21,8 +20,7 @@
     border-right: 1px solid #71B467;
     padding: 5px;
     color: #000000;
-/*    background-image: url("../../../public/images/fon 2.jpg");
-    background-size: 100% auto;*/
+    overflow: auto;
 }
 .blockPrice{
     display: grid;
@@ -31,9 +29,6 @@
     padding: 5px;
     text-align: center;
     color: #000000;
-}
-.plusMinus{
-margin: 5px;
 }
 .name {
     text-align: center;

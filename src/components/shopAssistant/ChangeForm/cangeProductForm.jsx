@@ -1,9 +1,9 @@
-import React, {useState} from 'react';
+import React, {useCallback, useState} from 'react';
 import {Field, reduxForm} from "redux-form";
 import AddUrl from "../addProductForm/addUrlPhotosForm";
 import style from './changeProductForm.module.css';
 
-function ChangeProduct(props) {
+const ChangeProduct = React.memo((props) =>{
     const arrOfUrl = props.urlsForChange.filter(url => url.idProduct === props.id);
     let urls = arrOfUrl.map(url => url.url);
 
@@ -35,11 +35,11 @@ function ChangeProduct(props) {
             <textarea className={style.inputDescription} type="text" onChange={(e) => {
                 setDescription(e.target.value)
             }} value={description} placeholder="description"/>
-            <AddUrl deleteURL={props.deleteURLForChange} addURL={props.addURLForChange} urls={props.urlsForChange}/>
+            <AddUrl deleteURL={props.deleteURLForChange} addURL={props.addURLForChange} urls={props.urlsForChange} id={props.id}/>
             <button onClick={onSubmit}>change</button>
             {/*            <ProductForm onSubmit={onSubmit}/>*/}
         </div>
 
     )
-};
+});
 export default ChangeProduct;
