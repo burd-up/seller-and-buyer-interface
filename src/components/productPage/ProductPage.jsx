@@ -36,7 +36,7 @@ const ProductPage = React.memo ((props) =>{
                 <div>quantity: {props.thisProductsInCart.quantity}<br/>price: {props.thisProductsInCart.price * props.thisProductsInCart.quantity}</div>
             </div>}
 
-        {isReviews? <Reviews closeReviews={closeReviews} reviews={props.reviews}/> :
+        {isReviews? <Reviews requestReviews={props.requestReviews} closeReviews={closeReviews} reviews={props.reviews}/> :
             <button onClick={() => setIsReviews(true)} className={style.buttonForAdd}>Reviews</button>}
 
     </div>

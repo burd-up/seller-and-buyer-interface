@@ -6,7 +6,7 @@ import {
     addToShoppingCart,
     CleanShoppingCart,
     deleteCurrentProduct,
-    deleteFromShoppingCart,
+    deleteFromShoppingCart, deleteReviewsProduct,
     requestReviews
 } from "../../redux/buyerReducer";
 import {addOrder, deleteOrder} from "../../redux/shopAssistantReducer";
@@ -20,17 +20,16 @@ import {productCartSelector} from "../shoppingCart/selectors/selectors";
 class ProductPageContainer extends React.Component {
 
     componentDidMount() {
-        this.props.requestReviews();
         this.props.addCurrentProduct(Number(this.props.match.params.productId))
     }
 
     render() {
-        return <div>
-            <ProductPage productId={this.props.match.params.productId} {...this.props}/>
-        </div>;
+        return <ProductPage productId={this.props.match.params.productId} {...this.props}/>;
     }
+
     componentWillUnmount() {
         this.props.deleteCurrentProduct();
+        this.props.deleteReviewsProduct();
     }
 };
 
@@ -48,6 +47,6 @@ let mapStateToProps = (state) => {
 export default compose(
     connect(mapStateToProps, {addToShoppingCart, deleteFromShoppingCart, CleanShoppingCart,
         addOrder, deleteOrder, requestReviews,
-        addCurrentProduct, deleteCurrentProduct}),
+        addCurrentProduct, deleteCurrentProduct, deleteReviewsProduct}),
     withRouter,
 )(ProductPageContainer)

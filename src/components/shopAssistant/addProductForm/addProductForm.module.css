@@ -19,7 +19,6 @@ input[type="search"]::placeholder { color: #ffd595; }
     border: 0px solid #71B467;
     outline: none;
     border-radius: 3px;
-    text-overflow: ellipsis;
 }
 .input::-webkit-input-placeholder { /*color:#71B467;*/ font-family: 'Mate SC';}
 .formURL{

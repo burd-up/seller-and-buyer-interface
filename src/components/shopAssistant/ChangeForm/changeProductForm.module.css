@@ -60,7 +60,7 @@ input[type="search"]::placeholder { color: #ffd595; }
     border-radius: 3px;
     font-family: 'Mate SC', serif;
 }
-.input::-webkit-input-placeholder { color:#000000; font-family: 'Mate SC';}
+.input::-webkit-input-placeholder { /*color:#000000*/; font-family: 'Mate SC';}
 .formURL{
     display: grid;
     grid-auto-rows: minmax(30px, auto);

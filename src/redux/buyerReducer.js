@@ -10,7 +10,7 @@ const DELETE_REVIEWS_PRODUCT = 'byer/DELETE_REVIEWS_PRODUCT';
 
 const initialState = {
     productsInCartId: [],
-    reviewsProduct: [],
+    reviewsProduct: null,
     currentProduct: null,
 };
 
@@ -51,7 +51,7 @@ const buyerReducer = (state = initialState, action) => {
         case DELETE_REVIEWS_PRODUCT:
             return {
                 ...state,
-                reviewsProduct: [],
+                reviewsProduct: null,
             };
         case CLEAN_SHOPPING_CART:
             return {
