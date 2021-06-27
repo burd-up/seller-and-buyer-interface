@@ -7,7 +7,7 @@ function Navbar() {
     return (
         <div className={style.navbar}>
             <nav className={style.header}>
-                <img className={style.logo} src={logo}/>
+                <NavLink className={style.logoLink} to='/'><img className={style.logo} src={logo}/></NavLink>
                 <NavLink className={style.button} to='/shopAssistant'>shop assistant</NavLink>
                 <NavLink className={style.button} to='/buyer'>buyer</NavLink>
             </nav>

@@ -8,6 +8,7 @@ import ShoppingCartContainer from "./components/shoppingCart/ShoppingCartContain
 import OrdersContainer from "./components/shoppingCart/orders/OrdersContainer";
 import style from './App.css';
 import ProductPageContainer from "./components/productPage/ProductPageContainer";
+import StartPage from "./components/StartPage/StartPage";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
         <Route path='/shopAssistant' render={() => <ShopAssistantContainer/>}/>
         <Route path='/orders' render={() => <OrdersContainer/>}/>
         <Route path='/product/:productId?' render={() => <ProductPageContainer/>}/>
+        <Route exact path='/' render={() => <StartPage/>}/> {/*exact если мы хотим чтобы маршруты совпадали точно*/}
     </div>
   );
 }
