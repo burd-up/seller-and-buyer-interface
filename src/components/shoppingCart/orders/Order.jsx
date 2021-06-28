@@ -1,5 +1,6 @@
 import React from 'react';
 import style from './order.module.css';
+import {completeTheOrder} from "../../../redux/shopAssistantReducer";
 
 const ProductInOrder = (props) => {
     return (<div className={style.product}>
@@ -19,7 +20,7 @@ const ProductInOrder = (props) => {
 const Order = React.memo((props) => {
     let products;
     if (props.products.length === 0) {
-        products = "пустой заказ"
+        products = "empty order"
     } else {
         products = props.products.map(product => <ProductInOrder key={product.id} name={product.name}
                                                                  id={product.id} description={product.description}
@@ -29,7 +30,13 @@ const Order = React.memo((props) => {
 
     return (
         <div className={style.order}>
-            <div className={style.numberOrder}>Order number {props.id}</div>
+            <div className={style.titleOrder}>
+                <div className={style.numberOrder}>Order number {props.id}</div>
+                <div >status: {props.status}</div>
+                <div></div>
+                {props.status === 'perform'? <button className={style.buttonBorder} onClick={()=> props.completeTheOrder(props.id)}>Completed</button>: null}
+            </div>
+{/*            <div className={style.numberOrder}>Order number {props.id}</div>*/}
             {products}
         </div>
     )

@@ -8,13 +8,19 @@
 
 .list {
     display: grid;
-    grid-template-columns: 12fr 1fr;
+    grid-template-columns: 10fr 1fr 1fr;
+    grid-column-gap: 15px;
     background-color: #FFFFFF;
     text-align: center;
     font-family: 'Mate SC', fantasy;
     color: #71B467;
     margin: 5px;
     text-decoration: none;
+}
+
+.titleShopAssistant{
+    text-decoration: none;
+    color: #71B467;
 }
 
 .orders {
@@ -27,6 +33,7 @@
     border: 1px solid #71B467;
     border-radius: 3px;
     transition: .3s;
+    color: #000000;
 }
 
 .orders:hover {

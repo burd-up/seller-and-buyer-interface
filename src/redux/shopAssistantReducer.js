@@ -3,6 +3,8 @@ const DELETE_PRODUCT = 'shopAssistant/DELETE_PRODUCT';
 const ADD_ORDER = 'shopAssistant/ADD_ORDER';
 const DELETE_ORDER = 'shopAssistant/DELETE_ORDER';
 const CHANGE_PRODUCT = 'shopAssistant/CHANGE_PRODUCT';
+const COMPLETE_THE_ORDER = 'shopAssistant/COMPLETE_THE_ORDER';
+
 
 const initialState = {
     _id: [],
@@ -50,8 +52,9 @@ const initialState = {
             photos: ['https://sc1.musik-produktiv.com/pic-010109188xl/gibson-les-paul-standard-heritage-cherry-sunburst-10109188.jpg',
                 'http://images.musicstore.de/images/1280/gibson-les-paul-classic-ebony_1_GIT0049473-000.jpg']},
         {id: 0.7, name: 'Ring of omnipotence', description: 'one ring to rule them all', price: 10000000,
-            photos: ['https://super01.ru/pictures/product/big/91311_big.jpg',
-                'https://gamemerch.ru/wp-content/uploads/2018/05/3.jpg']},
+            photos: ['https://gamemerch.ru/wp-content/uploads/2018/05/3.jpg',
+                'https://super01.ru/pictures/product/big/91311_big.jpg',
+                ]},
         {id: 0.8, name: 'Levitating Bonsai Plant (wenge)', description: 'Levitating plants LePlant are an amazing combination of nature and high technology, which causes delight and admiration. Plants float in the air, getting enough sunlight for full development.\n' +
                 'Bonsai is a miniature tree that prefers diffused light and moderate watering as the soil dries.', price: 230,
             photos: ['https://static-sl.insales.ru/images/products/1/7043/304274307/IMG_8426.jpg',
@@ -100,10 +103,21 @@ const shopAssistantReducer = (state = initialState, action) => {
             let newOrder = {
                 id: state._ordersId[state._ordersId.length-1],
                 productsInCart: action.products,
+                status: 'perform',
             };
             return {
                 ...state,
                 orders: [newOrder, ...state.orders],
+            };
+        case COMPLETE_THE_ORDER:
+            let newOrders = state.orders.map(el => {
+                if(el.id === action.id)
+                {return {...el, status: 'completed'}}
+                else return el;
+            })
+            return {
+                ...state,
+                orders: newOrders,
             };
         case DELETE_ORDER:
             return {
@@ -120,5 +134,6 @@ export const deleteProduct = (id) => ({type: DELETE_PRODUCT, id});
 export const addOrder = (products) => ({type: ADD_ORDER, products});
 export const deleteOrder = (id) => ({type: DELETE_ORDER, id});
 export const changeProduct = (id, name, description, price, photos) => ({type: CHANGE_PRODUCT, id, name, description, price, photos});
+export const completeTheOrder = (id) => ({type: COMPLETE_THE_ORDER, id});
 
 export default shopAssistantReducer;

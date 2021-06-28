@@ -6,9 +6,20 @@
     grid-row-gap: 15px;
     background-color: #FFFFFF;
     border-top: 1px solid #71B467;
-    font-family: 'Mate SC', fantasy;
     color: #71B467;
     text-align: center;
+}
+.buttonBorder{
+    border: 1px #71B467 solid;
+}
+.titleOrder{
+    display: grid;
+    grid-template-columns: 4fr 4fr 10fr 1fr;
+    grid-column-gap: 15px;
+    text-align: center;
+    justify-items: center;
+    align-items: center;
+    margin: 5px;
 }
 .blockPhoto{
     display: grid;
@@ -80,5 +91,5 @@ font-size: 25px;
 .order{
     border-radius: 3px;
     border: 1px solid #71B467;
-    margin: 3px 3px 3px 3px;
+    margin: 6px 6px 6px 6px;
 }
