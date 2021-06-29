@@ -3,6 +3,7 @@ import ProductForCart from "./product/productForCart";
 import {CleanShoppingCart, deleteFromShoppingCart} from "../../redux/buyerReducer";
 import style from "./shoppingCart.module.css";
 import {NavLink} from "react-router-dom";
+import HeaderOfBuyer from "../buyer/HeaderOfBuyer";
 
 const ShoppingCart = React.memo((props) => {
     let products;
@@ -20,7 +21,7 @@ const ShoppingCart = React.memo((props) => {
     }
     return (
         <div>
-
+            <HeaderOfBuyer orders={props.orders} productsInCart={props.products}/>
             <div className={style.title}>ShoppingCart:</div>
             <div>{products}</div>
             {props.products.length !== 0 ? <button className={style.doOrder} onClick={() => {

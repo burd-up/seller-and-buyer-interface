@@ -10,6 +10,7 @@ import style from './App.css';
 import ProductPageContainer from "./components/productPage/ProductPageContainer";
 import StartPage from "./components/StartPage/StartPage";
 import OrdersCompletedContainer from "./components/shoppingCart/ordersCompleted/OrdersCompletedContainer";
+import OrdersForBuyerContainer from "./components/OrdersForBuyer/OrdersForBuyerContainer";
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
         <Route path='/shopAssistant' render={() => <ShopAssistantContainer/>}/>
         <Route path='/ordersPerformed' render={() => <OrdersContainer/>}/>
         <Route path='/ordersCompleted' render={() => <OrdersCompletedContainer/>}/>
+        <Route path='/ordersForBuyer' render={() => <OrdersForBuyerContainer/>}/>
         <Route path='/product/:productId?' render={() => <ProductPageContainer/>}/>
         <Route exact path='/' render={() => <StartPage/>}/> {/*exact если мы хотим чтобы маршруты совпадали точно*/}
     </div>

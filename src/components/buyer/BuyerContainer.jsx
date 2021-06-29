@@ -21,6 +21,7 @@ let mapStateToProps = (state) => {
     productsInCart: productCartSelector(state.shopAssistantPage.products, state.buyer.productsInCartId),
     products: state.shopAssistantPage.products,
     productsInCartId: state.buyer.productsInCartId,
+    orders: state.shopAssistantPage.orders,
 
   }
 }

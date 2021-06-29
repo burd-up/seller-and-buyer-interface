@@ -1,6 +1,6 @@
 import React from 'react';
-import style from './order.module.css';
-import ProductInOrder from "./ProductInOrder";
+import style from '../shoppingCart/orders/order.module.css';
+import ProductInOrder from "../shoppingCart/orders/ProductInOrder";
 
 const Order = React.memo((props) => {
     let products;
@@ -19,7 +19,7 @@ const Order = React.memo((props) => {
                 <div className={style.numberOrder}>Order number {props.id}</div>
                 <div >status: {props.status}</div>
                 <div></div>
-                {props.status === 'perform'? <button className={style.buttonBorder} onClick={()=> props.completeTheOrder(props.id)}>Completed</button>: null}
+                <div></div>
             </div>
             {products}
         </div>

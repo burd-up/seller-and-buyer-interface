@@ -20,7 +20,8 @@ class ShoppingCartContainer extends React.Component {
 
 let mapStateToProps = (state) => {
   return {
-    products: productCartSelector(state.shopAssistantPage.products, state.buyer.productsInCartId)
+    products: productCartSelector(state.shopAssistantPage.products, state.buyer.productsInCartId),
+    orders: state.shopAssistantPage.orders,
   }
 }
 

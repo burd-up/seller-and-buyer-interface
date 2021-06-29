@@ -4,6 +4,7 @@ import {NavLink} from "react-router-dom";
 import style from "../buyer/buyer.module.css";
 import cartImg from '../../public/shopping_cart_black_24dp.svg';
 import Cart from "./Cart";
+import HeaderOfBuyer from "./HeaderOfBuyer";
 
 const Buyer = React.memo((props) => {
     let products;
@@ -21,10 +22,11 @@ const Buyer = React.memo((props) => {
 
     return (
         <div>
-            <div className={style.list}>
+            <HeaderOfBuyer orders={props.orders} productsInCart={props.productsInCart}/>
+            {/*<div className={style.list}>
                 <h2>Interface of buyer</h2>
                 <Cart productsInCart={props.productsInCart}/>
-            </div>
+            </div>*/}
             <h3 className={style.title}>Products</h3>
             <div className={style.listOfProducts}>{products}</div>
         </div>

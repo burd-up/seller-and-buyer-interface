@@ -8,7 +8,7 @@
 
 .list {
     display: grid;
-    grid-template-columns: 12fr 1fr;
+    grid-template-columns: 11fr 1fr 1fr;
     background-color: #FFFFFF;
     text-align: center;
     font-family: 'Mate SC', fantasy;
@@ -22,7 +22,9 @@
 .nav{
     text-decoration: none;
 }
-
+.imgForOrders{
+    height: 100%;
+}
 .orders {
     padding: 5px 0px 5px 0px;
 /*    text-decoration: none;*/
