@@ -6,6 +6,11 @@ import {NavLink} from "react-router-dom";
 import HeaderOfBuyer from "../buyer/HeaderOfBuyer";
 
 const ShoppingCart = React.memo((props) => {
+
+    let price = props.products.reduce( function (a, b) {
+            return a + (b.quantity*b.price)
+        }, null);
+
     let products;
     if (props.products.length === 0) {
         products = "No products in the cart"
@@ -27,7 +32,7 @@ const ShoppingCart = React.memo((props) => {
             {props.products.length !== 0 ? <button className={style.doOrder} onClick={() => {
                 props.addOrder(props.products);
                 props.CleanShoppingCart();
-            }}>do order price:</button>
+            }}>do order (price: {price}) </button>
                 : <NavLink className={style.button} to='/buyer'>to shopping</NavLink>}
         </div>
     )
