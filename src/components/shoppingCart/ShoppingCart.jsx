@@ -27,7 +27,7 @@ const ShoppingCart = React.memo((props) => {
             {props.products.length !== 0 ? <button className={style.doOrder} onClick={() => {
                 props.addOrder(props.products);
                 props.CleanShoppingCart();
-            }}>do order</button>
+            }}>do order price:</button>
                 : <NavLink className={style.button} to='/buyer'>to shopping</NavLink>}
         </div>
     )
