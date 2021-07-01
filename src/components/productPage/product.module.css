@@ -20,7 +20,7 @@
 }
 .blockPrice{
     display: grid;
-    grid-template-columns: 10fr 3fr 5fr 10fr;
+    grid-template-columns: 13fr 5fr 10fr;
     padding: 5px;
     text-align: center;
     color: #000000;
@@ -29,6 +29,9 @@
 }
 .plusMinus{
 margin: 5px;
+}
+.plusMinusButton{
+    justify-self: end;
 }
 .name {
     text-align: center;

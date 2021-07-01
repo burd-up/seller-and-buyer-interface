@@ -21,6 +21,9 @@
     align-items: center;
     margin: 5px;
 }
+.itemPrice{
+    justify-self: end;
+}
 .blockPhoto{
     display: grid;
     grid-template-rows: 1fr 1fr;

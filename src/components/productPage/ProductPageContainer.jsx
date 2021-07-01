@@ -31,8 +31,7 @@ class ProductPageContainer extends React.Component {
         this.props.deleteCurrentProduct();
         this.props.deleteReviewsProduct();
     }
-};
-
+}
 
 let mapStateToProps = (state) => {
     return {
@@ -41,6 +40,7 @@ let mapStateToProps = (state) => {
         reviews: state.buyer.reviewsProduct,
         thisProductsInCart: oneProductCartSelector(state.shopAssistantPage.products, state.buyer.productsInCartId, Number(state.buyer.currentProduct)),
         productsInCart: productCartSelector(state.shopAssistantPage.products, state.buyer.productsInCartId),
+        orders: state.shopAssistantPage.orders,
     }
 }
 

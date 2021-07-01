@@ -1,6 +1,7 @@
 import React from 'react';
 import style from '../shoppingCart/orders/order.module.css';
 import ProductInOrder from "../shoppingCart/orders/ProductInOrder";
+import Price from "../shoppingCart/Price";
 
 const Order = React.memo((props) => {
     let products;
@@ -18,8 +19,7 @@ const Order = React.memo((props) => {
             <div className={style.titleOrder}>
                 <div className={style.numberOrder}>Order number {props.id}</div>
                 <div >status: {props.status}</div>
-                <div></div>
-                <div></div>
+                <div className={style.itemPrice}><Price products={props.products}/></div>
             </div>
             {products}
         </div>
