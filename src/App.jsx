@@ -1,16 +1,16 @@
 import './App.css';
 import React from "react";
-import ShopAssistantContainer from "./components/shopAssistant/shopAssistantContainer";
 import Navbar from "./components/Navbar/header";
-import {Route, withRouter} from "react-router-dom";
+import {Route} from "react-router-dom";
 import BuyerContainer from "./components/buyer/BuyerContainer";
 import ShoppingCartContainer from "./components/shoppingCart/ShoppingCartContainer";
 import OrdersContainer from "./components/shoppingCart/orders/OrdersContainer";
-import style from './App.css';
 import ProductPageContainer from "./components/productPage/ProductPageContainer";
 import StartPage from "./components/StartPage/StartPage";
 import OrdersCompletedContainer from "./components/shoppingCart/ordersCompleted/OrdersCompletedContainer";
 import OrdersForBuyerContainer from "./components/OrdersForBuyer/OrdersForBuyerContainer";
+import ShopAssistantContainer from "./components/shopAssistant/shopAssistantContainer";
+
 
 function App() {
   return (
