@@ -16,30 +16,25 @@ const validate = (value, validates) => {
     }
 };
 
-const InputWithValidate = React.memo( (props) => {
+const InputWithValidate = React.memo( ({ isBlur, setIsBlur, showHints, setValidateStatus = null, value, setValue, validates,
+                                           textError = 'error', placeholder = '', type = "text", admissibilityEmpty = true}) => {
 
-    let { startValue = '', setValidate = null, setValueTop, validates, textError, placeholder, type = "text", admissibilityEmpty = true} = props;
-
-    const [value, setValue] = useState(startValue);
-    const [isBlur, setIsBlur] = useState(false);
+/*    const [isBlur, setIsBlur] = useState(false);*/
     let validationText = null;
-    let statusOfValidation = false; //прошло ли содержимое валидацию
 
     const condition = admissibilityEmpty? value.length > 0 : true;
 
     if(!validate(value, validates) && condition) {
         validationText=textError;
-    }else statusOfValidation = true;
+        setValidateStatus(false);
+    }else setValidateStatus(true);
 
 
     return (<div className={style.inputWithValidate}>
         <input className={style.input} type={type} onChange={(e) => {
             setValue(e.target.value);
-        }} value={value} placeholder={placeholder} onFocus={() => setIsBlur(false)} onBlur={() => {setIsBlur(true);
-            setValueTop(value);
-            setValidate? setValidate(statusOfValidation) : null;
-        }}/>
-            {validationText && isBlur? <div className={style.validate}>{validationText}</div> : null}
+        }} value={value} placeholder={placeholder} onFocus={() => setIsBlur(false)} onBlur={() => setIsBlur(true)}/>
+            {validationText && isBlur || showHints? <div className={style.validate}>{validationText}</div> : null}
         </div>
     )
 });

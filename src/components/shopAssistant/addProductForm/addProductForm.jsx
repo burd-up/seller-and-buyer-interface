@@ -3,20 +3,17 @@ import style from './addProductForm.module.css';
 import UrlList from "./UrlList";
 import {UrlInput} from "../ChangeForm/UrlInput";
 import InputWithValidate from "../../../helpComponent/InputWithValidate";
+import {useInputValidate} from "../../../hooks/useInputValidate";
 
 function AddProduct(props) {
 
-    console.log("top component")
+    const inputName = useInputValidate('');
+    const inputPrice = useInputValidate('')
 
-    const [name, setName] = useState('');
     const [description, setDescription] = useState('');
-    const [price, setPrice] = useState(null);
-
-//прошли ли мы валидацию
-    const [validatePrice, setValidatePrice] = useState(false);
 
 // стэйт для формы добавления URL картинок
-    const [currentUrl, setCurrentUrl] = useState('');
+    const inputUrl = useInputValidate('');
     const [arrUrl, setArrUrl] = useState([]);
 
 //вспомогательная функция управления стэйтом формы добавления URL картинок
@@ -24,27 +21,43 @@ function AddProduct(props) {
         setArrUrl(arrUrl.filter((el, i, arr) => number !== i))
     }
 
-//отправка новых параметров в стор
-    const onSubmit = () => {
-        if(validatePrice) {
-        props.addProduct(name, description, price, arrUrl);
-        setName('');
+// функция обнуляющая все значения
+    const zeroingValues = () => {
+        inputName.setValue('');
         setDescription('');
-        setPrice(null);
-        setCurrentUrl('');
+        inputPrice.setValue('');
+        inputUrl.setValue('');
         setArrUrl([]);
+    };
+
+// приводим наши валидационные инпуты в исходное состояние
+const toInitialStateInput = () => {
+    inputPrice.setIsBlur(false);
+    inputName.setIsBlur(false);
+}
+
+//отправка новых параметров в стор если поля прошли валидацию и показать подсказку если не прошли
+    const onSubmit = () => {
+        if(inputPrice.validateStatus && inputName.validateStatus) {
+        props.addProduct(inputName.value, description, inputPrice.value, arrUrl);
+        zeroingValues();
+        toInitialStateInput();
+        } else {
+            inputPrice.setShowHints(true);
+            inputName.setShowHints(true);
         }
     }
 
     return (<div className={style.form}>
             <h2>form for adding a product</h2>
             <div className={style.name}>
-                <input className={style.input} type = "text" onChange={(e) => {setName(e.target.value)}} value={name} placeholder="name of product"/>
-                <InputWithValidate startValue={price} setValueTop={setPrice} validates={{"moreThan": 0}} textError={"must be a positive number"}
-                                   placeholder={"price"} setValidate={setValidatePrice} admissibilityEmpty={false} type={'number'}/>
+                <InputWithValidate {...inputName} validates={{"minLength": 1}} textError={"cannot be empty"}
+                                   placeholder={"name of product"} admissibilityEmpty={false} type={'text'}/>
+                <InputWithValidate {...inputPrice} validates={{"moreThan": 0}} textError={"must be a positive number"}
+                                   placeholder={"price $"} admissibilityEmpty={false} type={'number'}/>
             </div>
             <textarea className={style.inputDescription} type = "text" onChange={(e) => {setDescription(e.target.value)}} value={description} placeholder="description"/>
-            <UrlInput setCurrentUrl={setCurrentUrl} currentUrl={currentUrl} arrUrl={arrUrl} setArrUrl={setArrUrl}/>
+            <UrlInput inputUrl={inputUrl} arrUrl={arrUrl} setArrUrl={setArrUrl}/>
             <UrlList arrUrl={arrUrl} deleteUrl={deleteUrl}/>
             <button onClick={onSubmit}>add</button>
         </div>

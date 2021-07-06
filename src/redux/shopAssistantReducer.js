@@ -92,7 +92,7 @@ const shopAssistantReducer = (state = initialState, action) => {
                 price: action.price,
                 photos: action.photos
             }
-            let arrayOfProducts = [...state.products.filter(product => product.id !== action.id), changedProduct].sort((a,b) => a.id > b.id ? 1 : -1);
+            let arrayOfProducts = [changedProduct, ...state.products.filter(product => product.id !== action.id)]/*.sort((a,b) => a.id > b.id ? 1 : -1)*/;
             return {
                 ...state,
                 products: arrayOfProducts,
