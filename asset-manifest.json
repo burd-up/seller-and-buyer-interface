@@ -1,0 +1,34 @@
+{
+  "files": {
+    "main.css": "/seller-and-buyer-interface/static/css/main.e2333641.chunk.css",
+    "main.js": "/seller-and-buyer-interface/static/js/main.33b18e4d.chunk.js",
+    "main.js.map": "/seller-and-buyer-interface/static/js/main.33b18e4d.chunk.js.map",
+    "runtime-main.js": "/seller-and-buyer-interface/static/js/runtime-main.aff689e8.js",
+    "runtime-main.js.map": "/seller-and-buyer-interface/static/js/runtime-main.aff689e8.js.map",
+    "static/js/2.a6775290.chunk.js": "/seller-and-buyer-interface/static/js/2.a6775290.chunk.js",
+    "static/js/2.a6775290.chunk.js.map": "/seller-and-buyer-interface/static/js/2.a6775290.chunk.js.map",
+    "static/js/3.fa35f326.chunk.js": "/seller-and-buyer-interface/static/js/3.fa35f326.chunk.js",
+    "static/js/3.fa35f326.chunk.js.map": "/seller-and-buyer-interface/static/js/3.fa35f326.chunk.js.map",
+    "index.html": "/seller-and-buyer-interface/index.html",
+    "static/css/main.e2333641.chunk.css.map": "/seller-and-buyer-interface/static/css/main.e2333641.chunk.css.map",
+    "static/js/2.a6775290.chunk.js.LICENSE.txt": "/seller-and-buyer-interface/static/js/2.a6775290.chunk.js.LICENSE.txt",
+    "static/media/arrow_back.e7bc8085.svg": "/seller-and-buyer-interface/static/media/arrow_back.e7bc8085.svg",
+    "static/media/arrow_forward.36b5e8b6.svg": "/seller-and-buyer-interface/static/media/arrow_forward.36b5e8b6.svg",
+    "static/media/checklist_black_24dp.855ab2c2.svg": "/seller-and-buyer-interface/static/media/checklist_black_24dp.855ab2c2.svg",
+    "static/media/StartPage.module.css": "/seller-and-buyer-interface/static/media/fon 1.d2b93c31.jpg",
+    "static/media/shoppingCart.module.css": "/seller-and-buyer-interface/static/media/fon 2.86947683.jpg",
+    "static/media/changeProductForm.module.css": "/seller-and-buyer-interface/static/media/fon 5.f4db4ef4.jpg",
+    "static/media/list.97881774.svg": "/seller-and-buyer-interface/static/media/list.97881774.svg",
+    "static/media/minus.9cdfe1e7.svg": "/seller-and-buyer-interface/static/media/minus.9cdfe1e7.svg",
+    "static/media/plus.83b3027b.svg": "/seller-and-buyer-interface/static/media/plus.83b3027b.svg",
+    "static/media/shopping_cart_black_24dp.0f0cd44e.svg": "/seller-and-buyer-interface/static/media/shopping_cart_black_24dp.0f0cd44e.svg",
+    "static/media/shortcut-script-app.c06b2041.png": "/seller-and-buyer-interface/static/media/shortcut-script-app.c06b2041.png",
+    "static/media/user.599df922.svg": "/seller-and-buyer-interface/static/media/user.599df922.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.aff689e8.js",
+    "static/js/2.a6775290.chunk.js",
+    "static/css/main.e2333641.chunk.css",
+    "static/js/main.33b18e4d.chunk.js"
+  ]
+}
